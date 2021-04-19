@@ -79,8 +79,6 @@ class Paragraph {
       return;
     }
 
-    console.log('keyupppppp');
-
     const {textContent} = this._element;
 
     if (textContent === '') {
@@ -189,6 +187,7 @@ class Paragraph {
     return {
       text: {
         br: true,
+        div: false
       }
     };
   }
