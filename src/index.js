@@ -79,6 +79,8 @@ class Paragraph {
       return;
     }
 
+    console.log('keyupppppp');
+
     const {textContent} = this._element;
 
     if (textContent === '') {
@@ -200,6 +202,9 @@ class Paragraph {
     return true;
   }
 
+  static get enableLineBreaks() {
+    return true
+  }
   /**
    * Get current Tools`s data
    * @returns {ParagraphData} Current data
