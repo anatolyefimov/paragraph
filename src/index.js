@@ -46,6 +46,7 @@ class Paragraph {
   constructor({data, config, api, readOnly}) {
     this.api = api;
     this.readOnly = readOnly;
+    this.isFormatable = config.isFormatable;
 
     this._CSS = {
       block: this.api.styles.block,
@@ -99,7 +100,11 @@ class Paragraph {
     div.dataset.placeholder = this.api.i18n.t(this._placeholder);
 
     if (!this.readOnly) {
-      div.contentEditable = true;
+      if (this.isFormatable) {
+        div.contentEditable = true;
+      } else {
+        div.contentEditable = 'plaintext-only';
+      }
       div.addEventListener('keyup', this.onKeyUp);
     }
 
@@ -184,7 +189,6 @@ class Paragraph {
    * Sanitizer rules
    */
   static get sanitize() {
-    console.log('sanitize');
     return {
       text: {
         br: true,
