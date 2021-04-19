@@ -184,10 +184,13 @@ class Paragraph {
    * Sanitizer rules
    */
   static get sanitize() {
+    console.log('sanitize');
     return {
       text: {
         br: true,
-        div: false
+        div: false,
+        i: false,
+        b: false
       }
     };
   }
